@@ -1,6 +1,6 @@
 // /app/blog/[id]/page.tsx
-import getBlogById, { Blog } from "@/app/(root)/blog/getBlogById";
 import { Metadata } from "next";
+import getBlogById, { Blog } from "@/app/(root)/blog/getBlogById";
 
 type PageProps = {
   params: {
@@ -8,17 +8,16 @@ type PageProps = {
   };
 };
 
-// 👉 Dynamic metadata for each blog post
+// ✅ SEO metadata function
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const blog: Blog = await getBlogById(params.id);
-
+  const blog = await getBlogById(params.id);
   return {
     title: blog.title,
-    description: blog.body.slice(0, 150) + "...", // first 150 characters as description
+    description: blog.body.slice(0, 100),
   };
 }
 
-// 👉 Page component
+// ✅ Main page component
 export default async function BlogDetailPage({ params }: PageProps) {
   const blog: Blog = await getBlogById(params.id);
 
