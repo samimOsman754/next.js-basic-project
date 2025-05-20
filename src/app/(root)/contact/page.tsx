@@ -8,7 +8,7 @@ const ContactPage = () => {
           Contact Us
         </h1>
         <p className="text-center text-gray-600 mb-8">
-          Have questions or feedback? We'd love to hear from you. Fill out the form below or reach out to us directly.
+          Have questions or feedback? We&#39;d love to hear from you. Fill out the form below or reach out to us directly.
         </p>
 
         {/* Contact Information */}
